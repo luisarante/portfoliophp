@@ -1,0 +1,40 @@
+@media screen and (max-width: 1536px){
+    .section-container{
+        max-width: 1280px;
+    }
+}
+
+@media screen and (max-width: 1280px){
+    .section-container{
+        max-width: 1024px;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .section-container{
+        max-width: 768px;
+    }
+    #inicio{
+        margin-top: 62px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .section-container{
+        max-width: 576px;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .section-container{
+        max-width: 448px;
+    }
+}
+
+@media screen and (max-width: 448px){
+    .section-container{
+        max-width: 320px;
+    }
+}
+
+

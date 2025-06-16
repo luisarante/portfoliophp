@@ -1,0 +1,25 @@
+html{
+    scroll-behavior: smooth;
+    color: #fff;
+}
+
+body{
+    background-color: #171B27;
+}
+
+.skills{
+    transform: scale(160%);
+    transition: all 0.3s;
+}
+
+.skills:hover, .skills svg:hover{
+    transform: scale(180%);
+}
+
+.font-cal {
+    font-family: "Cal Sans", sans-serif;
+}
+
+section {
+  scroll-margin-top: 120px;
+}
