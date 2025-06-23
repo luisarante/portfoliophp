@@ -11,10 +11,10 @@
                 <a href="">Sobre</a>
             </li>
             <li>
-                <a href="admin_skills.php">Skills</a>
+                <a href="<?= file_exists('skills/') ? 'skills/' : '../skills/'; ?>">Skills</a>
             </li>
             <li>
-                <a href="admin_projetos.php">Projetos</a>
+                <a href="<?= file_exists('projetos/') ? 'projetos/' : '../projetos/'; ?>">Projetos</a>                
             </li>
             <li>
                 <a href="">Contato</a>
@@ -23,7 +23,7 @@
                 <a href="">Footer</a>
             </li>
             <li>
-                <a href="admin_usuarios.php">Usuários</a>
+                <a href="<?= file_exists('users/') ? 'users/' : '../users/'; ?>">Usuários</a>
             </li>
         </ul>
     </nav>

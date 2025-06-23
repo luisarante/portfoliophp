@@ -1,10 +1,10 @@
 <?php
-include 'verifica_admin.php';
+include '../verifica_admin.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<?php include '../includes/head.php' ?>
+<?php include '../../includes/head.php' ?>
 <?php 
   $db = new mysqli("localhost", "root", "", "portfolio_db");
   $db->set_charset("utf8mb4");
@@ -15,7 +15,7 @@ include 'verifica_admin.php';
     if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == 0) {
         $ext = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
         $nomeImagem = md5($_FILES['imagem']['name'] . time()) . "." . $ext;
-        $caminho = "../images/skills/";
+        $caminho = "../../images/skills/";
 
       move_uploaded_file($_FILES["imagem"]["tmp_name"], $caminho . $nomeImagem);
     } else {
@@ -32,8 +32,8 @@ include 'verifica_admin.php';
   }
 ?>
 <body>
-  <?php include 'admin_header.php'; ?>
-  <?php include 'admin_aside.php'; ?>
+  <?php include '../admin_header.php'; ?>
+  <?php include '../admin_aside.php'; ?>
   <div class="w-full flex items-center justify-center px-4 mt-30 mb-15">
     <div class="w-full max-w-xl p-10 bg-white rounded-xl shadow-lg">
       <form method="POST" enctype="multipart/form-data" class="space-y-6">
@@ -70,7 +70,36 @@ include 'verifica_admin.php';
       </form>
     </div>
   </div>
+  <section>
+    <div class="w-full flex gap-20 px-18 justify-center py-32 flex-wrap">
+        <?php
+            $db = $mysqli->query("SELECT * FROM skills");
+            while ($skills = $db->fetch_object()) {
+                echo "
+                <div class='relative'>
+                  <img class='skills' src='../../images/skills/" . $skills->imagem ."' title='". $skills->skill ."'></img>
+                  <div class='flex w-full justify-between absolute -bottom-[50px] z-50'>
+                    <div class='text-center'>
+                      <a href='skills_form_edit.php?id={$skills->id}'
+                        class='text-orange-500 hover:text-orange-700'>
+                        <i class='fa-solid fa-pen-to-square'></i>
+                      </a>
+                    </div>
+                    <div class='text-center'>
+                      <a href='delete.php?id={$skills->id}&rota=users/' 
+                        onclick=\"return confirm('Tem certeza que deseja excluir este projeto?');\" 
+                        class='text-red-500 hover:text-red-700'>
+                        <i class='fa-solid fa-trash'></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                ";
+            }
+        ?>
+    </div>
+</section>
 </body>
-<script src="../js/index.js"></script>
+<script src="../../js/index.js"></script>
 
 </html>

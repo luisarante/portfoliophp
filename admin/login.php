@@ -1,17 +1,17 @@
-<?php include 'includes/head.php'; ?>
+<?php include '../includes/head.php'; ?>
 <div class="fixed top-[1rem] left-[1rem] text-lg">
-    <a href="index.php" class=""> <i class="fa-solid fa-arrow-left mr-2"></i>Voltar</a>
+    <a href="../" class=""> <i class="fa-solid fa-arrow-left mr-2"></i>Voltar</a>
 </div>
 
 <?php
     session_start();
     if(isset($_SESSION['user']) && isset($_SESSION['senha'])){
-        header('Location:admin/painel_de_controle.php');
+        header('Location:painel_de_controle.php');
     }else{
-        require_once("conexao.php");
+        require_once("../conexao.php");
         if(isset($_POST['enviar'])){
             $user = $_POST['email'];
-            $senha = $_POST['senha'];
+            $senha = md5(trim($_POST['senha']));
     
             $puxa  = $mysqli->query(
                 "SELECT * FROM admins
@@ -26,7 +26,7 @@
                 $_SESSION['senha'] = $senha;
                 $_SESSION['nome'] = $mostra->admins_nome;
                 $_SESSION['adminId'] = $mostra->admins_id;
-                header("Location:admin/painel_de_controle.php");
+                header("Location:painel_de_controle.php");
             }else{
                 echo "
                     <div id='msg-erro' class='absolute bg-red-600 text-white top-11 z-80 font-semibold rounded-full flex items-center justify-center left-[50%] py-3 px-4 radious -translate-[50%]'>

@@ -29,13 +29,13 @@ include 'verifica_admin.php';
             <p class="font-normal text-base hover:text-orange-400 hover:text-orange-400">Editar <button class="text-center hover:text-orange-400 cursor-pointer"><i class="fa-solid fa-pen-to-square"></i></button></p>
         </div>
       </a>
-      <a href="admin_skills.php">
+      <a href="skills/">
         <div class="rounded-xl bg-white shadow-xl p-3 text-xl font-semibold hover:bg-gray-100 transition duration-300 cursor-pointer">
             <h3> Skills </h3>
             <p class="font-normal text-base hover:text-orange-400 hover:text-orange-400">Editar <button class="text-center hover:text-orange-400 cursor-pointer"><i class="fa-solid fa-pen-to-square"></i></button></p>
         </div>
       </a>
-      <a href="admin_projetos.php">
+      <a href="projetos/">
         <div class="rounded-xl bg-white shadow-xl p-3 text-xl font-semibold hover:bg-gray-100 transition duration-300 cursor-pointer">
             <h3> Projeto </h3>
             <p class="font-normal text-base hover:text-orange-400 hover:text-orange-400">Editar <button class="text-center hover:text-orange-400 cursor-pointer"><i class="fa-solid fa-pen-to-square"></i></button></p>
@@ -53,7 +53,7 @@ include 'verifica_admin.php';
             <p class="font-normal text-base hover:text-orange-400 hover:text-orange-400">Editar <button class="text-center hover:text-orange-400 cursor-pointer"><i class="fa-solid fa-pen-to-square"></i></button></p>
         </div>
       </a>
-      <a href="admin_usuarios.php">
+      <a href="users/">
         <div class="rounded-xl bg-white shadow-xl p-3 text-xl font-semibold hover:bg-gray-100 transition duration-300 cursor-pointer">
             <h3> Usuários </h3>
             <p class="font-normal text-base hover:text-orange-400 hover:text-orange-400">Editar <button class="text-center hover:text-orange-400 cursor-pointer"><i class="fa-solid fa-pen-to-square"></i></button></p>

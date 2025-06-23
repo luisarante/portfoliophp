@@ -1,0 +1,105 @@
+<?php
+include '../verifica_admin.php';
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<?php include '../../includes/head.php' ?>
+<?php
+$id = isset($_GET['id']) ? (int) $_GET['id'] : null;
+
+if ($id) {
+    $sql = "SELECT skill, imagem FROM skills WHERE id = $id";
+    $resultado = $mysqli->query($sql);
+
+    if ($resultado && $resultado->num_rows > 0) {
+        $projeto = $resultado->fetch_assoc();
+        // Correção aqui:
+        $skill = $projeto['skill'];
+        $imagem = $projeto['imagem'];
+    } else {
+        exit('Skill não encontrada.');
+    }
+} else {
+    exit('ID inválido.');
+}
+?>
+
+<body>
+    <?php include '../admin_header.php'; ?>
+    <?php include '../admin_aside.php'; ?>
+    <div class="w-full flex items-center justify-center px-4 mt-30 mb-15">
+        <div class="w-full max-w-xl p-10 bg-white rounded-xl shadow-lg">
+            <form method="POST" enctype="multipart/form-data" class="space-y-6">
+                <fieldset>
+                    <legend class="text-2xl font-bold text-gray-800 mb-6">Editar Skill</legend>
+                    <div class="flex flex-col space-y-2">
+                        <label for="nomeSkill" class="text-gray-700 font-medium">Nome</label>
+                        <input
+                            id="nomeSkill"
+                            name="nomeSkill"
+                            type="text"
+                            value="<?php echo htmlspecialchars($skill); ?>"
+                            placeholder="Digite o nome da skill"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-gray-800"
+                            required />
+                    </div>
+                    <div class="flex flex-col space-y-2 mt-4">
+                        <label for="imagem" class="text-gray-700 font-medium">Imagem</label>
+                        <div class="relative py-8 flex flex-col justify-center items-center outline-2 outline-dashed outline-gray-300 rounded-xl hover:outline-[#1E3050] hover:bg-gray-200 transition durantion-200">
+                            <input
+                                id="imagem"
+                                name="imagem"
+                                type="file"
+                                value="<?php echo htmlspecialchars($imagem); ?>"
+                                class="w-full h-full absolute opacity-0 transition duration-300" />
+                            <i class="fa-solid fa-upload text-5xl" style="color: #1E3050"></i>
+                            <p class="text-gray-400 mt-2">Clique aqui para selecionar a imagem</p>
+                        </div>
+                        <?php if (!empty($imagem)) : ?>
+                            <p class="text-sm text-gray-600 mt-2">Imagem atual: <?php echo htmlspecialchars($imagem); ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="mt-6">
+                        <button type="submit" name="enviar" class="w-full cursor-pointer py-3 bg-blue-500 text-white font-medium text-lg rounded-xl shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300">
+                            Alterar
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <section>
+        <div class="w-full flex gap-20 px-18 justify-center py-32 flex-wrap">
+            <?php
+            $mysqli = new mysqli("localhost", "root", "", "portfolio_db");
+            $consulta = $mysqli->query("SELECT * FROM skills");
+            while ($skills = $consulta->fetch_object()) {
+                echo "
+                <div class='relative'>
+                  <img class='skills' src='../../images/skills/" . $skills->imagem . "' title='" . $skills->skill . "'></img>
+                  <div class='flex w-full justify-between absolute -bottom-[50px] z-50'>
+                    <div class='text-center'>
+                      <a href='skills_form_edit.php?id={$skills->id}'
+                        class='text-orange-500 hover:text-orange-700'>
+                        <i class='fa-solid fa-pen-to-square'></i>
+                      </a>
+                    </div>
+                    <div class='text-center'>
+                      <a href='delete.php?id={$skills->id}&rota=users/' 
+                        onclick=\"return confirm('Tem certeza que deseja excluir este projeto?');\" 
+                        class='text-red-500 hover:text-red-700'>
+                        <i class='fa-solid fa-trash'></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                ";
+            }
+            ?>
+        </div>
+    </section>
+</body>
+<script src="../../js/index.js"></script>
+
+</html>

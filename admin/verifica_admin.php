@@ -1,5 +1,5 @@
 <?php 
-    require_once("../conexao.php");
+    require_once(file_exists('../conexao.php') ? '../conexao.php' : '../../conexao.php');
     session_start();
 
     if(!isset($_SESSION['user']) || !isset($_SESSION['senha'])){

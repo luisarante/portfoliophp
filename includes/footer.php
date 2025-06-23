@@ -1,6 +1,6 @@
 <footer class="w-full border-t border-[#3c435c] pt-8 pb-6 text-center relative">
     <div class="absolute bottom-[1rem] right-[1rem] text-white">
-        <a href="login.php"><button class="cursor-pointer">Entrar</button></a>
+        <a href="admin/login.php"><button class="cursor-pointer">Entrar</button></a>
     </div>
     <div class="mx-auto px-4">
         <p class="text-sm text-gray-500 mb-4">

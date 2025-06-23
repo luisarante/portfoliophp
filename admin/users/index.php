@@ -1,12 +1,12 @@
 <?php
-include 'verifica_admin.php';
+include '../verifica_admin.php';
 $db = new mysqli("localhost", "root", "", "portfolio_db");
 $db->set_charset("utf8mb4");
 
 if (isset($_POST['enviar'])) {
   $nome = $_POST['nome'];
   $email = $_POST['email'];
-  $senha = md5($_POST['senha']);
+  $senha = md5(trim($_POST['senha']));
 
   if ($_SESSION['nome'] == 'admin') {
     $insere = $db->query("INSERT INTO admins(
@@ -23,7 +23,6 @@ if (isset($_POST['enviar'])) {
         <div id='msg-erro' class='absolute bg-red-600 text-white top-11 z-80 font-semibold rounded-full flex items-center justify-center left-[50%] py-3 px-4 radious -translate-[50%]'>
           <span>Sem permissão necessária</span>
         </div>
-     
       ";
   }
 }
@@ -32,11 +31,11 @@ if (isset($_POST['enviar'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<?php include '../includes/head.php' ?>
+<?php include '../../includes/head.php' ?>
 
 <body>
-  <?php include 'admin_header.php'; ?>
-  <?php include 'admin_aside.php'; ?>
+  <?php include '../admin_header.php'; ?>
+  <?php include '../admin_aside.php'; ?>
 
   <main>
     <div class="w-full flex items-center justify-center px-4 mt-30 mb-15">
@@ -75,7 +74,7 @@ if (isset($_POST['enviar'])) {
                     </a>
                   </div>
                   <div class="text-center">
-                    <a href="delete.php?id=<?php echo $admin['admins_id']; ?>"
+                    <a href="delete.php?id=<?php echo $admin['admins_id'];?>&rota=users/"
                       onclick="return confirm('Tem certeza que deseja excluir este administrador?');"
                       class="text-red-500 hover:text-red-700">
                       <i class="fa-solid fa-trash"></i>
