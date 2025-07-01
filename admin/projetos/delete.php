@@ -1,6 +1,5 @@
 <?php 
 require_once "../../conexao.php";
-
 $id = isset($_GET['id']) ? (int) $_GET['id'] : null;
 
 if ($id) {

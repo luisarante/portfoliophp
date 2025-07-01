@@ -26,6 +26,22 @@ if (isset($_POST['enviar'])) {
       ";
   }
 }
+if(isset($_GET['msg'])){
+    if($_GET['msg'] == 'cannot_delete_self'){
+        echo "
+          <div id='msg-erro' class='absolute bg-red-600 text-white top-11 z-80 font-semibold rounded-full flex items-center justify-center left-[50%] py-3 px-4 radious -translate-[50%]'>
+            <span>Você não pode excluir sua própria conta.</span>
+          </div>
+        ";
+    }
+    if($_GET['msg'] == 'deleted'){
+        echo "
+          <div id='msg-erro' class='absolute bg-green-600 text-white top-11 z-80 font-semibold rounded-full flex items-center justify-center left-[50%] py-3 px-4 radious -translate-[50%]'>
+            <span>Excluído com sucesso.</span>
+          </div>
+        ";
+    }
+}
 
 ?>
 
