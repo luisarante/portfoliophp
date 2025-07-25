@@ -31,14 +31,14 @@ Este projeto é um sistema completo de gerenciamento de conteúdo para um portf�
 
 ## 📁 Estrutura de Pastas
 
-portfolio-php/
+portfoliophp/
 ├── admin/
 │   ├── login.php
 │   ├── painel_de_controle.php
 │   ├── sair.php
 │   ├── verifica_admin.php
 │   ├── admin_aside.php
-│   ├── admin_header.php
+│   └── admin_header.php
 ├── projetos/
 │   ├── index.php
 │   ├── delete.php
@@ -47,7 +47,7 @@ portfolio-php/
 │   ├── index.php
 │   ├── delete.php
 │   └── skills_form_edit.php
-├── users/  ← Gestão de administradores
+├── users/
 │   ├── admin_form_edit.php
 │   ├── delete.php
 │   ├── index.php
@@ -58,17 +58,19 @@ portfolio-php/
 │   ├── footer.php
 │   ├── head.php
 │   ├── header.php
-│   └── ...
-├── js/
-│   ├── index.js
+│   ├── inicio.php
+│   ├── projetos.php
+│   ├── skills.php
+│   └── sobre.php
 ├── css/
 │   ├── global.css
 │   └── media.css
+├── js/
+│   └── index.js
 ├── images/
 │   ├── projetos/
 │   └── skills/
-├── index.php  ← Página principal gerada com dados do banco
-
+└── index.php
 
 ---
 
