@@ -31,47 +31,48 @@ Este projeto é um sistema completo de gerenciamento de conteúdo para um portf�
 
 ## 📁 Estrutura de Pastas
 
-portfoliophp/
-├── admin/
-│   ├── login.php
-│   ├── painel_de_controle.php
-│   ├── sair.php
-│   ├── verifica_admin.php
-│   ├── admin_aside.php
-│   └── admin_header.php
-├── projetos/
-│   ├── index.php
-│   ├── delete.php
-│   └── projetos_form_edit.php
-├── skills/
-│   ├── index.php
-│   ├── delete.php
-│   └── skills_form_edit.php
-├── users/
-│   ├── admin_form_edit.php
-│   ├── delete.php
-│   ├── index.php
-│   └── user_edit.php
-├── includes/
-│   ├── conexao.php
-│   ├── contato.php
-│   ├── footer.php
-│   ├── head.php
-│   ├── header.php
-│   ├── inicio.php
-│   ├── projetos.php
-│   ├── skills.php
-│   └── sobre.php
-├── css/
-│   ├── global.css
-│   └── media.css
-├── js/
-│   └── index.js
-├── images/
-│   ├── projetos/
-│   └── skills/
-└── index.php
-
+```
+  portfoliophp/
+  ├── admin/
+  │   ├── login.php
+  │   ├── painel_de_controle.php
+  │   ├── sair.php
+  │   ├── verifica_admin.php
+  │   ├── admin_aside.php
+  │   └── admin_header.php
+  ├── projetos/
+  │   ├── index.php
+  │   ├── delete.php
+  │   └── projetos_form_edit.php
+  ├── skills/
+  │   ├── index.php
+  │   ├── delete.php
+  │   └── skills_form_edit.php
+  ├── users/
+  │   ├── admin_form_edit.php
+  │   ├── delete.php
+  │   ├── index.php
+  │   └── user_edit.php
+  ├── includes/
+  │   ├── conexao.php
+  │   ├── contato.php
+  │   ├── footer.php
+  │   ├── head.php
+  │   ├── header.php
+  │   ├── inicio.php
+  │   ├── projetos.php
+  │   ├── skills.php
+  │   └── sobre.php
+  ├── css/
+  │   ├── global.css
+  │   └── media.css
+  ├── js/
+  │   └── index.js
+  ├── images/
+  │   ├── projetos/
+  │   └── skills/
+  └── index.php
+```
 ---
 
 ## 🔐 Recursos do Sistema
